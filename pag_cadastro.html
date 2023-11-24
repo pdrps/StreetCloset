@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="cep.js"></script>
+    <title>Pagina de cadastro</title>
+</head>
+
+<body style="background-color: black; overflow-x: hidden;">
+
+    <nav class="navbar-expand-lg container-fluid" style="background-color: #260352;">
+        <a href="pag_principal.php">
+        <button class="btn btn-outline-success text-white" style="color: white; background-color: #260352; border-color: white; position:absolute; top: 50px;" type="submit">VOLTAR</button>
+    </a>
+        <ul class="navbar">
+
+            <li class="nav-item active">
+                <img src="PNGStreetCloset.png" width="120px">
+            </li>
+
+                </div>
+        </ul>
+    </nav>
+
+
+    <form class="mx-8" action="inserir_cadastro.php" action="cep.js" method="POST">
+        <br>
+        <br>
+        <br>
+        <div class="row justify-content-center align-item-center " style="color: white; font-size: 25px;">
+            Dados Pessoais
+        </div>
+        <div class="row  align-item-center" style=" background-color: white; width: 100%; height: 2px; margin-left: 10px; margin-right: 10px;"  ></div>
+        <br>
+        <br>
+        <br>
+        <div class="row justify-content-center align-item-center ">
+            <div class="col-md-4 col-xs-12" style="color: white;">
+                <label>NOME:</label>
+                <input class="form-control" type="text" placeholder="Insira seu nome" name="nome" required="" minlength="2" maxlength="200">
+            </div>
+            <div class="col-md-4" style="color: white;">
+                <label>SOBRENOME:</label>
+                <input class="form-control" type="text" placeholder="Insira seu sobrenome" name="sobrenome" required="" minlength="2" maxlength="200">
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row justify-content-center align-item-center">
+            <div class="col-md-4 col-xs-12" style="color: white;">
+                <label>TELEFONE:</label>
+                <input class="form-control" type="number" placeholder="XX XXXXX-XXXX" name="telefone" required required="" minlength="9" maxlength="10" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$">
+            </div>   
+            <div class="col-md-4" style="color: white;">
+                <label>CPF:</label>
+                <input class="form-control" type="number" placeholder="Apenas números" name="cpf" required="" minlength="11" maxlength="11" pattern="[0-9]+$">
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row justify-content-center align-item-center">
+            <div class="col-md-4 col-xs-12" style="color: white;">
+                <label>EMAIL:</label>
+                <input class="form-control" type="text" placeholder="email@email.com" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required="">
+            </div>
+            
+
+        </div>
+        
+
+        <!----------------------Cadastro Endereco--------------------------------->
+        <br>
+        <br>
+        <br>
+        <div class="row justify-content-center align-item-center " style="color: white; font-size: 25px;">
+            Endereço
+        </div>
+        <div class="row  align-item-center" style=" background-color: white; width: 100%; height: 2px; margin-left: 10px; margin-right: 10px;"  ></div>
+        
+        <br>
+        <br>
+        <br>
+
+        <div class="row justify-content-center align-item-center form-group ">
+            <div class="col-md-3 col-xs-12 control-label" style="color: white;">
+                <label>CEP</label>
+                <input class="form-control input-md" value="" type="search" placeholder="Apenas números" name="cep" id="cep" required="" pattern="[0-9]+$">
+            </div>
+            <div class="col-md-4" style="color: white; margin-top: 25px; margin-left: 50px; width: 615px;">
+                    <button onclick="pesquisacep(cep.value)" class="btn btn-outline-success text-white" style="color: white; background-color: #260352; border-color: black;" type="button" name="pesquisar">PESQUISAR</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row justify-content-center align-item-center ">
+            <div class="col-md-4 col-xs-12" style="color: white;">
+                <label>RUA:</label>
+                <input class="form-control" type="text" id="rua" name="rua" required="" readonly="readonly">
+            </div>
+            <div class="col-md-4" style="color: white;">
+                <label>BAIRRO:</label>
+                <input class="form-control" type="text" id="bairro" name="bairro" required="" readonly="readonly">
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row justify-content-center align-item-center">
+            <div class="col-md-4 col-xs-12" style="color: white;">
+                <label>NUMERO:</label>
+                <input class="form-control" type="number" id="numero" name="numero" minlength="1" maxlength="5" required="">
+            </div>
+            <div class="col-md-4" style="color: white;">
+                <label>COMPLEMENTO:</label>
+                <input class="form-control" type="text" id="complemento" minlength="0" maxlength="500" name="complemento">
+            </div>
+        </div>
+       
+         <!------------------------Senha--------------------------------->
+         <br>
+         <br>
+         <br>
+         <div class="row justify-content-center align-item-center " style="color: white; font-size: 25px;">
+             Segurança
+         </div>
+         <div class="row  align-item-center" style="background-color: white; width: 100%; height: 2px; margin-left: 10px; margin-right: 10px;"  ></div>
+         <br>
+         <br>
+         <br>
+        <div class="row justify-content-center align-item-center">
+            <div class="col-md-4 col-xs-12" style="color: white;">
+                <label>SENHA:</label>
+                <input class="form-control" type="password" placeholder="Insira sua senha" name="senha" required="">
+            </div>
+            <div class="col-md-4" style="color: white;">
+                <label>CONFIRME SUA SENHA:</label>
+                <input class="form-control" type="password" placeholder="Confirme sua senha" name="confirme_senha" required="">
+            </div>
+        </div>
+            
+        <!----------------------Botão--------------------------------->
+
+        <br>
+        <br>
+        <br>
+
+        <div class="row justify-content-center align-item-center">
+            <div class="col-md-auto" style="color: white;">
+                <input type="checkbox" required>
+                Aceito os Termos e Condições e autorizo o uso de meus dados de acordo com a Política de privacidade.
+            </div>
+            <br>
+            <br>
+            
+            <div class="row justify-content-center align-item-center">
+                <div class="col-md-auto" style="color: white;">
+                    <a href="pag_login.html">
+                        <button class="btn btn-outline-success text-white" style="color: white; background-color: #260352; border-color: black;" type="submit">CONCLUIR</button>
+                    </a>
+
+                    <br>
+         <br>
+                </div>
+            </div>
+        </div>
+
+        
+    </form>
+
+
+   
+
+</body>
+
+</html>
